@@ -1,5 +1,4 @@
 package com.example.hciasecurity;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.Animator;

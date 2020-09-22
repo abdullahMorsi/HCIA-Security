@@ -6,13 +6,13 @@ import java.util.LinkedList;
 public class TrueAndFalse extends Question<String, String> {
     {
         setMyType(MyType.True_And_False);
-        setPoints(15);
+
     }
     public TrueAndFalse() {
     }
 
     public TrueAndFalse(String question, boolean correct_answer, int chapterNumber) {
-        super(question, String.valueOf(correct_answer), String.valueOf(!correct_answer), chapterNumber);
+        super(question, String.valueOf(correct_answer), String.valueOf(!correct_answer));
     }
 
     // firebase setters and getters
@@ -41,4 +41,6 @@ public class TrueAndFalse extends Question<String, String> {
         Collections.shuffle(answers);
         return answers;
     }
+
+
 }

@@ -10,20 +10,20 @@ import java.util.LinkedList;
 public class MultipleChoice extends Question<LinkedList<String>, LinkedList<String>> {
     {
         setMyType(MyType.MULTIPLE_CHOICE);
-        setPoints(20);
+
     }
     public MultipleChoice(){
 
     }
     public MultipleChoice(String question, LinkedList<String> correct_answer, LinkedList<String> wrong_answer, int chapterNumber) {
-        super(question, correct_answer, wrong_answer, chapterNumber);
+        super(question, correct_answer, wrong_answer);
 
     }
 
     // firebase setters and getters
     public ArrayList<Object> getCorrect_answer() {
         ArrayList<Object> my_array=new ArrayList<Object>();
-        my_array.addAll(this.mgetWrong_answer());
+        my_array.addAll(this.mgetCorrect_answer());
         return my_array;
     }
 
@@ -34,11 +34,6 @@ public class MultipleChoice extends Question<LinkedList<String>, LinkedList<Stri
         }
         this.correct_answer=strings;
     }
-
-
-
-
-
     public ArrayList<Object> getWrong_answer() {
         ArrayList<Object> my_array=new ArrayList<Object>();
         my_array.addAll(this.mgetWrong_answer());

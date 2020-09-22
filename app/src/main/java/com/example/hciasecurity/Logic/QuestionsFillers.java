@@ -3804,7 +3804,6 @@ public class QuestionsFillers {
         questions.setTrueAndFalses(trueAndFalses);
         questions.setMultipleChoices(multipleChoices);
         questions.setSingleChoices(singleChoices);
-        Collections.sort(questions);
         return questions;
     }
     public MyQuestions getQuizTrueandFalseQuestions(){

@@ -24,18 +24,6 @@ public abstract class LinearAdapter<Question> {
         for (int i=0; i<questions.size();i++){
             Question question=questions.get(i);
             View view=getView(i,linearLayout,question);
-            if(isForAll){
-                if(i==0){
-                    TextView textView=view.findViewById(R.id.chapter_name);
-                    textView.setVisibility(View.VISIBLE);
-                    textView.setText(QuestionsFillers.chapterNames[21]);
-                }else if(((com.example.hciasecurity.Logic.Questions.Question)question).mgetChapterNumber()
-                !=((com.example.hciasecurity.Logic.Questions.Question)questions.get(i-1)).mgetChapterNumber()){
-                    TextView textView=view.findViewById(R.id.chapter_name);
-                    textView.setVisibility(View.VISIBLE);
-                    textView.setText(QuestionsFillers.chapterNames[((com.example.hciasecurity.Logic.Questions.Question)question).mgetChapterNumber()]);
-                }
-            }
             linearLayout.addView(view);
         }
         isForAll=false;

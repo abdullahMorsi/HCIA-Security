@@ -7,7 +7,7 @@ import com.example.hciasecurity.Logic.GUIHandlers.QustionGUI;
 import java.io.Serializable;
 import java.util.LinkedList;
 
-public abstract class Question<T,D>implements Serializable ,Comparable<Question> {
+public abstract class Question<T,D>implements Serializable{
     public enum MyType{
         SINGLE_CHOICE,
         True_And_False,
@@ -16,33 +16,22 @@ public abstract class Question<T,D>implements Serializable ,Comparable<Question>
     private String img_url;
     protected MyType myType;
     private int points;
-    private int chapterNumber;
-    private int defualtPriority=5;
-
-    public int mgetChapterNumber() {
-        return chapterNumber;
-    }
-
-    public void msetChapterNumber(int chapterNumber) {
-        this.chapterNumber = chapterNumber;
-    }
-
-    private int priority;
     private String question;
     protected T correct_answer;
     protected D wrong_answer;
+    private QustionGUI<T> qustionGui;
 
-    public Question( String question, T correct_answer, D wrong_answer,int chapterNumber) {
-        this.chapterNumber = chapterNumber;
+    public Question( String question, T correct_answer, D wrong_answer) {
         this.question = question;
         this.correct_answer = correct_answer;
         this.wrong_answer = wrong_answer;
     }
 
     public Question() {
+
     }
 
-    private QustionGUI<T> qustionGui;
+    // firebase getter and setters
 
     public String getQuestion() {
         return question;
@@ -67,6 +56,15 @@ public abstract class Question<T,D>implements Serializable ,Comparable<Question>
     public void setMyType(MyType myType) {
         this.myType = myType;
     }
+      public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    //end of firbase getters and setters
 
     public T mgetCorrect_answer() {
         return correct_answer;
@@ -79,7 +77,9 @@ public abstract class Question<T,D>implements Serializable ,Comparable<Question>
     public D mgetWrong_answer() {
         return wrong_answer;
     }
-
+    public void msetWrong_answer(D wrong_answer) {
+        this.wrong_answer = wrong_answer;
+    }
     public QustionGUI mgetQustionGui() {
         return qustionGui;
     }
@@ -88,34 +88,8 @@ public abstract class Question<T,D>implements Serializable ,Comparable<Question>
         this.qustionGui = qustionGui;
     }
 
-    public void msetWrong_answer(D wrong_answer) {
-        this.wrong_answer = wrong_answer;
-    }
-
-    public int getPoints() {
-        return points;
-    }
-
-    public void setPoints(int points) {
-        this.points = points;
-    }
-
-    public int getDefualtPriority() {
-        return defualtPriority;
-    }
-
-    public void setDefualtPriority(int defualtPriority) {
-        this.defualtPriority = defualtPriority;
-    }
 
 
-    public int mgetPriority() {
-        return priority;
-    }
-
-    public void msetPriority(int priority) {
-        this.priority = priority;
-    }
     public int mgetDesevedPoints(){
       T t=  qustionGui.getUserAnswer();
       if (isCorrect(t)){
@@ -129,12 +103,14 @@ public abstract class Question<T,D>implements Serializable ,Comparable<Question>
     public abstract LinkedList<String> mgetAll_answers();
 
     @Override
-    public int compareTo(Question question) {
-         if(mgetChapterNumber()>question.mgetChapterNumber()) {
-            return -11;
-        }else if(mgetChapterNumber()<question.mgetChapterNumber()){
-            return 1;
-        }
-        return 0;
+    public String toString() {
+        return "Question{" +
+                "img_url='" + img_url + '\'' +
+                ", myType=" + myType +
+                ", points=" + points +
+                ", question='" + question + '\'' +
+                ", correct_answer=" + correct_answer +
+                ", wrong_answer=" + wrong_answer +
+                '}';
     }
 }
