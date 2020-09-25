@@ -26,7 +26,9 @@ public class TestFireBase extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_fire_base);
+
         textView=findViewById(R.id.editTextTextMultiLine);
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference=database.getReference();
         DatabaseReference myRef = database.getReference();
@@ -34,8 +36,8 @@ public class TestFireBase extends AppCompatActivity {
         final TrueAndFalse trueAndFalse =new TrueAndFalse("The question",true,0);
         trueAndFalse.setPoints(15);
         trueAndFalse.setImg_url("the url");
-        myRef.child("Trua and false question").setValue(trueAndFalse);
-        myRef.child("Trua and false question").addListenerForSingleValueEvent(new ValueEventListener() {
+        myRef.child("True and false question").setValue(trueAndFalse);
+        myRef.child("True and false question").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 TrueAndFalse trueAndFalse1=snapshot.getValue(TrueAndFalse.class);
@@ -50,8 +52,8 @@ public class TestFireBase extends AppCompatActivity {
 
         SingleChoice singleChoice=new SingleChoice("The question", "correct answer",
                 new LinkedList<String>(){{
-                    add("wrong answer1");
-                    add("WRONGANSWER2");
+                    add("wrong answer 1");
+                    add("wrong answer 2");
                 }},0);
         databaseReference.child("my single").setValue(singleChoice);
         final ArrayList<SingleChoice>singleChoices =new ArrayList<>();

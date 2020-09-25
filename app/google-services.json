@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "636100647346",
+    "firebase_url": "https://hcia-security.firebaseio.com",
+    "project_id": "hcia-security",
+    "storage_bucket": "hcia-security.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:636100647346:android:2f9239f976404b464dacab",
+        "android_client_info": {
+          "package_name": "com.example.hciasecurity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "636100647346-g9toah6in4lar9li1i08dh427n94908r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAh6MFknJzy3IsvMlIJSQSQ_zoc0gwhRE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "636100647346-g9toah6in4lar9li1i08dh427n94908r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
